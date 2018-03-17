@@ -9,7 +9,6 @@ var bodyParser = require('body-parser')
 var MongoStore = require('connect-mongo')(session);
 var db = mongoose.connection;
 var User = require('/app/schema/User');
-var flash = require('connect-flash');
 var https = require("https");
 var books;
 mongoose.connect(process.env.MONGODB2)
@@ -83,9 +82,9 @@ function(req, email, password, done) {
     if (err)
       return done(err);
     if (!user)
-      return done(null, false, req.flash('loginMessage', 'No user found.'));
+      return done(null, false, null);
     if (!user.validPassword(password))
-      return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+      return done(null, false, null);
     return done(null, user);
   });
 }));
