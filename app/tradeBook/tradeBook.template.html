@@ -1,0 +1,64 @@
+<div class="tradeboxBackground" tabindex="0" ng-keydown="$ctrl.onKeyDown($event)">
+</div>
+<div class="tradeBox" tabindex="0" ng-keydown="$ctrl.onKeyDown($event)">
+  <div class="row">
+    <div class="col-sm-2">
+      <img class="poster" ng-src="{{$ctrl.book.link}}">
+    </div>
+    <div class="col-sm-9">
+      <table style="width:100%">
+        <tr>
+          <td valign="top">Title:</td>
+          <td valign="top">{{$ctrl.book.title}}</td> 
+        </tr>
+        <tr>
+          <td valign="top">Subtitle:</td>
+          <td valign="top">{{$ctrl.book.subtitle}}</td> 
+        </tr>
+        <tr>
+          <td valign="top">Authors:</td>
+          <td valign="top">{{$ctrl.book.authors}}</td> 
+        </tr>
+        <tr>
+          <td valign="top">Description:</td>
+          <td valign="top">{{$ctrl.book.description}}</td> 
+        </tr>
+      </table>
+    </div>
+    <div class="col-sm-1">
+      <div style="position: absolute; top: -5%; right: 4%">
+        <h4 style="cursor: pointer" ng-click="$ctrl.close()" ><i class="far fa-times-circle"></i></h4>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <div style="display: inline">
+      <p style="margin-left: -1%; display: inline">Filter Location:</p>
+      <input style="display: inline; margin-right: 2%" ng-model="OrderByLocation">
+      <p style="display: inline">Filter Method:</p>
+      <select style="display: inline" ng-model="OrderByMethod">
+        <option value="">All</option>
+        <option value="Both">Both</option>
+        <option value="Mail">Mail</option>
+        <option value="In Person">In Person</option>
+      </select>
+    </div>
+    <p style="color: red">
+      {{$ctrl.err}}
+    </p>    
+    <table style="border: 1px solid skyblue; width: 80%; margin:auto; margin-top: 1%">
+      <tr style="border-bottom: 1px solid silver">
+        <th>Username</th>
+        <th>Location</th>
+        <th>Trade Method</th>
+        <th>Trade</th>
+      </tr>
+      <tr ng-show="{{user.username !== $ctrl.username? true : false}}" ng-repeat="user in $ctrl.book.user | filter:{settings:{method:OrderByMethod}, location:OrderByLocation} ">
+        <td>{{user.username}}</td>
+        <td>{{user.location}}</td>
+        <td>{{user.settings.method}}</td>
+        <td><button ng-click="$ctrl.trade($ctrl.book, user)" class="trade btn btn-primary" style="width: 75px">Trade</button></td>
+      </tr>
+    </table>
+  </div>
+</div>

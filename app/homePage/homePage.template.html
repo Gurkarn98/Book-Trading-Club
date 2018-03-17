@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div>
+    <br>
+    <h1 style="font-weight:bold; color: #303c51"><i class="fas fa-book"></i> Book Trading Club</h1>
+  </div>
+  <div>
+    <h3 class="text-center">
+      Welcome{{$ctrl.username}}<i class="far fa-smile"></i> <i class="far fa-smile"></i> <i class="far fa-smile"></i>
+    </h3>
+    <br>
+    <h5 style="font-weight:bold; margin-left: 5%">Features:</h5>
+    <ul style="font:14px; margin-left: 5%">
+      <li>
+        Look for books you want to read. If you like it, request it for trade.
+      </li>
+      <li>
+         The book you trade is yours to keep.
+      </li>
+      <li>
+        Add your own books, you don't need anymore.
+      </li>
+      <li>
+        Trade them with other users, in return you can trade any of the books available on our website.
+      </li>
+      <li ng-if="$ctrl.username === ' '">
+        Start looking right away by loging in or signup.
+      </li>
+    </ul>
+  </div>
+</div>

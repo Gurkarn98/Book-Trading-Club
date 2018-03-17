@@ -1,0 +1,1 @@
+angular.module('mybooks', ['trades', 'mybooksPage', 'mybooksAdd']);

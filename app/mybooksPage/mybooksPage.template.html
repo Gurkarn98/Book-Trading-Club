@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div>
+    <div class="text-center align">
+    <div>
+      <div class="select" id="{{book.title+book.authors+'grp'}}" ng-repeat="book in $ctrl.books">
+        <img id="{{book.title+book.authors+'img'}}" ng-src="{{book.link}}">
+        <div class="edit-book" id="{{book.title+book.authors+'set'}}">
+          <form nam="settings">
+            <label style="font-size: 12px">Number of copies you own: </label>
+            <input style="font-size: 12px; width: 100%" ng-model="$ctrl.copies" class="copies" type="number" name="copies" min="1" required>
+            <label style="font-size: 12px">Trade Method:</label>
+            <select style="font-size: 12px" ng-model="$ctrl.tradeMethod" ng-init="book.user[0].settings.method" name="tradeMethod" required>
+              <option value="" disabled selected>Choose one</option>
+              <option value="Mail">Mail</option>
+              <option value="In Person">In Person</option>
+              <option value="Both">Both</option>
+            </select>
+            <button style="padding:0.5%; width:100%; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px" class="btn btn-success" ng-click="$ctrl.save(book, settings.copies.$valid, settings.method.$valid)">Save</button>
+          </form>
+        </div>
+        <div class="edit">
+          <button class="edit-btn btn btn-danger" ng-click="$ctrl.delete(book.title, book.authors)">Delete</button>
+          <button class="edit-btn btn btn-primary" ng-click="$ctrl.switch(book)"><i class="fas fa-cog"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
