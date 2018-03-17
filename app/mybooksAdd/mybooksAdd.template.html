@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <div class="text-center">
+    <form name="searchBook" style="margin: 5%">
+      <input name="title" class="input" ng-model="$ctrl.title"><button class="add-btn btn btn-success" ng-click="$ctrl.search(searchBook.title.$valid)">Add</button>
+    </form>
+  </div>
+  <div class="text-center align">
+    <div>
+      <div class="select" ng-repeat="book in $ctrl.data">
+        <img ng-src="{{book.volumeInfo.imageLinks.thumbnail}}">
+        <button class="add-book btn btn-success" ng-click="add(book.volumeInfo)">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+<mybooks-add-setting ng-show="showsettings"></mybooks-add-setting>

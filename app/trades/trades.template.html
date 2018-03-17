@@ -1,0 +1,199 @@
+<p class="text-center" style="color:red">{{$ctrl.err}}</p>
+<div class="row">
+  <div class="text-center col-sm-6 col-left">
+    <h3>Your trade requests</h3>
+    <div class="btn-group btn-group-justified" style="margin-bottom:4%">
+      <button class="btn btn-success" ng-click="$ctrl.showto('Accepted')">Accepted {{$ctrl.requestToANum}}</button>
+      <button class="btn btn-danger" ng-click="$ctrl.showto('Rejected')">Rejected {{$ctrl.requestToRNum}}</button>
+      <button class="btn btn-warning" ng-click="$ctrl.showto('Pending')">Pending {{$ctrl.requestToNum}}</button>
+    </div>
+    <div class="trade-tab row" ng-if="$ctrl.rto && $ctrl.requestTo.length > 0" ng-repeat="request in $ctrl.requestTo">
+      <div class="col-sm-3">
+        <img width="100%" ng-src="{{request.link}}">
+      </div>
+      <div class="col-sm-9">
+        <table style="width: 100%">
+          <tr>
+            <td>Title:</td><td>{{request.title}}</td>
+          </tr>  
+          <tr>
+            <td>Authors:</td><td>{{request.authors}}</td>
+          </tr>
+          <tr>
+            <td>Username:</td><td>{{request.username}}</td>
+          </tr>
+          <tr>
+            <td>Status</td><td>{{request.status}}</td>
+          </tr>
+          <table style="width: 100%">
+            <tr>
+              <td><button ng-click="$ctrl.cancel(request, 'to')" class="btn btn-danger" style="width: 100%"><i class="fas fa-times" ></i> Cancel</button></td>
+            </tr>
+          </table>
+        </table>
+      </div>
+    </div>
+    <div class="trade-tab pending" ng-if="$ctrl.rto && $ctrl.requestTo.length === 0">
+      <h6>You have 0 pending trade requests.</h6>
+    </div>
+    <div class="trade-tab row" ng-show="$ctrl.rtoa && {{$ctrl.requestToA.length > 0}}" ng-repeat="request in $ctrl.requestToA">
+      <div class="col-sm-3">
+        <img width="100%" ng-src="{{request.link}}">
+      </div>
+      <div class="col-sm-9">
+        <table style="width: 100%">
+          <tr>
+            <td>Title:</td><td>{{request.title}}</td>
+          </tr>  
+          <tr>
+            <td>Authors:</td><td>{{request.authors}}</td>
+          </tr>
+          <tr>
+            <td>Username:</td><td>{{request.username}}</td>
+          </tr>
+          <tr>
+            <td>Status</td><td>{{request.status}}</td>
+          </tr>
+          <table style="width: 100%">
+            <tr>
+              <td>Your request has been accepted.</td>
+            </tr>
+          </table>
+        </table>
+      </div>
+      <i ng-click="$ctrl.delete(request, 'fromMe')" style="position: absolute; right: 20px; font-size: 20px; border-radius: 50%;" class="far fa-times-circle"></i>
+    </div>
+    <div class="trade-tab" ng-show="$ctrl.rtoa && {{$ctrl.requestToA.length === 0}}">
+      <h6>You have 0 accepted trade requests.</h6>
+    </div>
+    <div class="trade-tab row" ng-show="$ctrl.rtor && {{$ctrl.requestToR.length > 0}}" ng-repeat="request in $ctrl.requestToR">
+      <div class="col-sm-3">
+        <img width="100%" ng-src="{{request.link}}">
+      </div>
+      <div class="col-sm-9">
+        <table style="width: 100%">
+          <tr>
+            <td>Title:</td><td>{{request.title}}</td>
+          </tr>  
+          <tr>
+            <td>Authors:</td><td>{{request.authors}}</td>
+          </tr>
+          <tr>
+            <td>Username:</td><td>{{request.username}}</td>
+          </tr>
+          <tr>
+            <td>Status</td><td>{{request.status}}</td>
+          </tr>
+          <table style="width: 100%">
+            <tr>
+              <td>Your request has been rejected.</td>
+            </tr>
+          </table>
+        </table>
+      </div>
+      <i ng-click="$ctrl.delete(request, 'fromMe')" style="position: absolute; right: 20px; font-size: 20px; border-radius: 50%;" class="far fa-times-circle"></i>
+    </div>
+    <div class="trade-tab" ng-show="$ctrl.rtor && {{$ctrl.requestToR.length === 0}}">
+      <h6>You have 0 rejected trade requests.</h6>
+    </div>
+  </div>
+  <div class="text-center col-sm-6 col-right">
+    <h3>Trade requests for you</h3>
+    <div class="btn-group btn-group-justified" style="margin-bottom:4%">
+      <button class="btn btn-success" ng-click="$ctrl.showme('Accepted')" >Accepted {{$ctrl.requestMeANum}}</button>
+      <button class="btn btn-danger" ng-click="$ctrl.showme('Rejected')">Rejected {{$ctrl.requestMeRNum}}</button>
+      <button class="btn btn-warning" ng-click="$ctrl.showme('Pending')">Pending {{$ctrl.requestMeNum}}</button>
+    </div>
+    <div class="trade-tab row" ng-if="$ctrl.rme && $ctrl.requestMe.length > 0" ng-repeat="request in $ctrl.requestMe">
+      <div class="col-sm-3">
+        <img width="100%" ng-src="{{request.link}}">
+      </div>
+      <div class="col-sm-9" style="overflow-x: auto">
+        <table style="width: 100%">
+          <tr>
+            <td style="width: 50%">Title:</td><td style="width: 50%">{{request.title}}</td>
+          </tr>  
+          <tr>
+            <td style="width: 50%">Authors:</td><td style="width: 50%">{{request.authors}}</td>
+          </tr>
+          <tr>
+            <td style="width: 50%">Username:</td><td style="width: 50%">{{request.username}}</td>
+          </tr>
+          <tr>
+            <td style="width: 50%">Location:</td><td style="width: 50%">{{request.location}}</td>
+          </tr>
+          <tr>
+            <td style="width: 50%"><button ng-click="$ctrl.decision(request, 'Accepted')" style="width: 100%" class="btn btn-success"><i class="fas fa-check"></i> Accept</button></td><td style="width: 50%"><button ng-click="$ctrl.decision(request, 'Rejected')" style="width: 100%" class="btn btn-danger"><i class="fas fa-times"></i> Reject</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="trade-tab" ng-if="$ctrl.rme && $ctrl.requestMe.length === 0">
+      <h6>You have 0 trade requests to accept.</h6>
+    </div>
+    <div class="trade-tab row" ng-if="$ctrl.rmea && $ctrl.requestMeA.length > 0" ng-repeat="request in $ctrl.requestMeA">
+      <div class="col-sm-3">
+        <img width="100%" ng-src="{{request.link}}">
+      </div>
+      <div class="col-sm-9" style="overflow-x: auto">
+        <table style="width: 100%">
+          <tr>
+            <td style="width: 50%">Title:</td><td style="width: 50%">{{request.title}}</td>
+          </tr>  
+          <tr>
+            <td style="width: 50%">Authors:</td><td style="width: 50%">{{request.authors}}</td>
+          </tr>
+          <tr>
+            <td style="width: 50%">Username:</td><td style="width: 50%">{{request.username}}</td>
+          </tr>
+          <tr>
+            <td style="width: 50%">Location:</td><td style="width: 50%">{{request.location}}</td>
+          </tr>
+          <tr>
+            <table style="width: 100%">
+              <tr>
+                <td style="width: 100%">You accepted this request.</td>
+              </tr>
+            </table>
+          </tr>
+        </table>
+      </div>
+      <i ng-click="$ctrl.delete(request, 'forMe')" style="position: absolute; right: 20px; font-size: 20px; border-radius: 50%;" class="far fa-times-circle"></i>
+    </div>
+    <div class="trade-tab" ng-if="$ctrl.rmea && $ctrl.requestMeA.length === 0">
+      <h6>You have accepted 0 trade requests.</h6>
+    </div>
+    <div class="trade-tab row" ng-if="$ctrl.rmer && $ctrl.requestMeR.length > 0" ng-repeat="request in $ctrl.requestMeR">
+      <div class="col-sm-3">
+        <img width="100%" ng-src="{{request.link}}">
+      </div>
+      <div class="col-sm-9" style="overflow-x: auto">
+        <table style="width: 100%">
+          <tr>
+            <td style="width: 50%">Title:</td><td style="width: 50%">{{request.title}}</td>
+          </tr>  
+          <tr>
+            <td style="width: 50%">Authors:</td><td style="width: 50%">{{request.authors}}</td>
+          </tr>
+          <tr>
+            <td style="width: 50%">Username:</td><td style="width: 50%">{{request.username}}</td>
+          </tr>
+          <tr>
+            <td style="width: 50%">Location:</td><td style="width: 50%">{{request.location}}</td>
+          </tr>
+          <tr>
+            <table style="width: 100%">
+              <tr>
+                <td style="width: 100%">You rejected this request.</td>
+              </tr>
+            </table>
+          </tr>
+        </table>
+      </div>
+      <i ng-click="$ctrl.delete(request, 'forMe')" style="position: absolute; right: 20px; font-size: 20px; border-radius: 50%;" class="far fa-times-circle"></i>
+    </div>
+    <div class="trade-tab" ng-if="$ctrl.rmer && $ctrl.requestMeR.length === 0">
+      <h6>You have rejected 0 trade requests.</h6>
+    </div>
+  </div>
+</div>

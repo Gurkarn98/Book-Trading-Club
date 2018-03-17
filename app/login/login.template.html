@@ -1,0 +1,18 @@
+<div style="width: 50%; margin:auto" class="container-fluid">
+  <div>
+    <h2><i class="fas fa-sign-in-alt"></i> Log in</h2>
+  </div>
+  <form name="login">
+    <label>Email :</label>
+    <input style="width: 100%" name="email" type="email" ng-model="email" required>
+    <label>Password :</label>
+    <input style="width: 100%" name="password" type="password" ng-model="password" required>
+    <p style="color:red">
+      {{$ctrl.err}}
+    </p>
+    <div style="width:100%; margin-top: 1%" class="btn-group">
+      <button style="width:50%" class="btn btn-default loginbtn" ng-click="$ctrl.login(login.email.$valid, login.password.$valid)"><i class="fas fa-sign-in-alt"></i> Log in</button>
+      <button style="width:50%" ui-sref="signup" class="btn btn-default loginbtn"><i class="fas fa-user-plus"></i> Sign up</button>
+    </div>
+  </form>
+</div>

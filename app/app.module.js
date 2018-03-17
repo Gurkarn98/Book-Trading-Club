@@ -1,0 +1,1 @@
+angular.module('app', ['ui.router', 'homePage', 'login', 'signup', 'mybooks', 'allbooks', 'settings']);

@@ -1,0 +1,28 @@
+<div style="width: 50%; margin:auto" class="container-fluid">
+  <div>
+    <h2><i class="fas fa-user-plus"></i> Sign up</h2>
+  </div>
+  <form name="signup">
+    <label>Name :</label>
+    <input style="width: 100%;" name="name" type="text" ng-model="$ctrl.name" required>
+    <label>Email :</label>
+    <input style="width: 100%;" name="email" type="email" ng-model="$ctrl.email" required>
+    <label>City :</label>
+    <input style="width: 100%;" name="city" type="text" ng-model="$ctrl.city" required>
+    <label>State :</label>
+    <input style="width: 100%;" name="state" type="text" ng-model="$ctrl.state" required>
+    <label>Country :</label>
+    <input style="width: 100%;" name="country" type="text" ng-model="$ctrl.country" required>
+    <label>Password :</label>
+    <input style="width: 100%;" name="password" type="password" ng-model="$ctrl.password" required>
+    <label>Confirm Password :</label>
+    <input style="width: 100%;" name="confirmPassword" type="password" ng-model="$ctrl.confirmPassword" required>
+    <p>
+      {{$ctrl.err}}
+    </p>
+    <div style="width:100%; margin-top: 1%" class="btn-group">
+      <button style="width:50%" class="btn btn-default loginbtn" ng-click="$ctrl.signup(signup.email.$valid, signup.name.$valid, signup.password.$valid, signup.city.$valid, signup.state.$valid, signup.country.$valid)"><i class="fas fa-user-plus"></i> Sign up</button>
+      <button style="width:50%" ui-sref="login" class="btn btn-default loginbtn"><i class="fas fa-sign-in-alt"></i> Log in</button>
+    </div>
+  </form>
+</div>

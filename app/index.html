@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Book Trading Club</title>
+    <meta name="description" content="Book Trading Club">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="https://cdn.glitch.com/5ba3824f-e7eb-455d-a3ec-d29ff5508570%2F5020-200.png?1521237540201"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" 
+          integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" 
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script src="https://unpkg.com/@uirouter/angularjs@1.0.7/release/angular-ui-router.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js" 
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" 
+            crossorigin="anonymous"></script>
+    <script src="/app.module.js"></script>
+    <script src="/service/user.service.js"></script>
+    <script src="/service/bookStore.service.js"></script>
+    <script src="/app.config.js"></script>
+    <script src="/app.run.js"></script>
+    <script src="/controller/logout.controller.js"></script>
+    <script src="/homePage/homePage.module.js"></script>
+    <script src="/homePage/homePage.component.js"></script>
+    <script src="/login/login.module.js"></script>
+    <script src="/login/login.component.js"></script>
+    <script src="/signup/signup.module.js"></script>
+    <script src="/signup/signup.component.js"></script>
+    <script src="/settings/settings.module.js"></script>
+    <script src="/settings/settings.component.js"></script>
+    <script src="/mybooks/mybooks.module.js"></script>
+    <script src="/mybooks/mybooks.component.js"></script>
+    <script src="/mybooksPage/mybooksPage.module.js"></script>
+    <script src="/mybooksPage/mybooksPage.component.js"></script>
+    <script src="/mybooksAdd/mybooksAdd.module.js"></script>
+    <script src="/mybooksAdd/mybooksAdd.component.js"></script>
+    <script src="/mybooksAddSetting/mybooksAddSetting.module.js"></script>
+    <script src="/mybooksAddSetting/mybooksAddSetting.component.js"></script>
+    <script src="/allbooks/allbooks.module.js"></script>
+    <script src="/allbooks/allbooks.component.js"></script>
+    <script src="/trades/trades.module.js"></script>
+    <script src="/trades/trades.component.js"></script>
+    <script src="/tradeBook/tradeBook.module.js"></script>
+    <script src="/tradeBook/tradeBook.component.js"></script>
+  </head>
+  <body>
+    <div class="container" ng-app="app">
+      <base href="/">
+      <nav>
+        <ul class="nav-group">
+          <li class="right"><a ng-show="show" ng-controller="logout" ng-click="logout()" class="nav" href="#"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+          <li class="right"><a ng-show="show" class="nav" ui-sref="settings" ui-sref-active="active"><i class="fas fa-cog"></i></a></li>
+          <li class="right"><a ng-show="show" class="nav" ui-sref="allbooks" ui-sref-active="active">All Books</a></li>
+          <li class="right"><a ng-show="show" class="nav" ui-sref="mybooks.page" ui-sref-active="active">My Books</a></li>
+          <li class="right"><a ng-show="!show" class="nav" ui-sref="login" ui-sref-active="active"><i class="fas fa-sign-in-alt"></i> Log in</a></li>
+          <li class="right"><a ng-show="!show"  class="nav" ui-sref="signup" ui-sref-active="active"><i class="fas fa-user-plus"></i> Sign up</a></li>
+          <li class="left"><a class="nav home" ui-sref="home" ui-sref-active="active"><i class="fas fa-book"></i> Book Club</a><a class="nav home" ui-sref="home" ui-sref-active="active"><i class="fas fa-home"></i> Home</a></li>
+        </ul>
+      </nav>
+      <div class="view-container">
+        <div ui-view class="view-frame">
+        </div>
+      </div>
+      <footer class="text-center">
+      <div class="row">
+        <div class="col-sm-4">
+          <p><i class="footer fab fa-free-code-camp"></i> Built By <a href="https://www.freecodecamp.org/gurkarn98" target="_blank">@gurkarn98</a></p>
+        </div>
+        <div class="col-sm-4">
+          <p><i class="footer fab fa-twitter-square"></i> Twitter <a href="https://twitter.com/gurkarn98" target="_blank">@gurkarn98</a></p>
+        </div>
+        <div class="col-sm-4">
+          <p><i class="footer fab fa-github"></i> Github <a href="https://github.com/Gurkarn98" target="_blank">@gurkarn98</a></p>
+        </div>
+      </div> 
+      <div class="text-center">
+        <p><i class="footer fab fa-github"></i> Github repo <a href="https://github.com/Gurkarn98/Book-Trading-Club" target="_blank">Gurkarn98/Book-Trading-Club</a></p>
+        <p>Built on <a href="https://glitch.com/~booktradingclub" target="_blank">glitch.com</a></p>
+      </div>
+    </footer>
+    </div>
+  </body>
+</html>

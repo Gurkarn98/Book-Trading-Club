@@ -1,0 +1,36 @@
+<div style="width:100%" class="container-fluid">
+  <div style="width:50%; margin:auto">
+    <div>
+      <h2><i class="fas fa-cog"></i> Settings:</h2>
+    </div>
+    <form name="settings">
+      <label>City :</label>
+      <input style="width:100%" name="city" type="text" ng-model="city" required>
+      <label>State:</label>
+      <input style="width:100%" name="state" type="text" ng-model="state" required>
+      <label>Country:</label>
+      <input style="width:100%" name="country" type="text" ng-model="country" required>
+      <p>
+        {{$ctrl.err}}
+      </p>
+      <button style="margin:1% 0 0 0; width:100%" class="btn btn-primary" ng-click="$ctrl.save(settings.city.$valid, settings.state.$valid, settings.state.$valid)"><i class="fas fa-save"></i> Save</button>
+    </form>
+  </div>
+  <div style="width:50%; margin:auto">
+    <div>
+      <h2><i class="fas fa-key"></i> Change Password:</h2>
+    </div>
+    <form name="changePassword">
+      <label>Current Password:</label>
+      <input style="width:100%" name="currentPassword" type="password" ng-model="currentPassword" required>
+      <label>New Password:</label>
+      <input style="width:100%" name="newPassword" type="password" ng-model="newPassword" required>
+      <label> Confirm Password:</label>
+      <input style="width:100%" name="confirmPassword" type="password" ng-model="confirmPassword" required>
+      <p style="color: {{$ctrl.color}}">
+        {{$ctrl.passErr}}
+      </p>
+      <button style="margin:1% 0 0 0; width:100%" class="btn btn-primary" ng-click="$ctrl.change(changePassword.currentPassword.$valid, changePassword.newPassword.$valid, changePassword.confirmPassword.$valid)"><i class="fas fa-save"></i> Save</button>
+    </form>
+  </div>
+</div>

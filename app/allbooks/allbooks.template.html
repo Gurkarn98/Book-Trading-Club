@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <trade-book ng-show="showInfo"></trade-book>
+  <div class="row myBooksSubMenu">
+    <div class="col-sm-5">
+    </div>
+    <div class="col-sm-2 col-sub clicked">
+      <h3 class="subMenu clicked" >All Book</h3>
+    </div>
+    <div class="col-sm-5">
+    </div>
+  </div>
+  <div class="text-center">
+    <div style="margin: 5%">
+      <label>Search:</label><input style="margin-left:1%; border-radius: 5px" class="input" ng-model="title">
+    </div>
+  </div>
+  <div>
+    <div class="text-center align">
+      <div>
+        <div class="select" ng-show="{{book.settings.copies !== 0}} && {{$ctrl.title.indexOf(book.title + ' ' +book.authors) === -1 ? true :false}}" ng-repeat="book in $ctrl.books | filter:{title:title}">
+          <img ng-src="{{book.link}}">
+          <button class="trade-btn btn btn-primary" ng-click="trade(book)">Trade</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

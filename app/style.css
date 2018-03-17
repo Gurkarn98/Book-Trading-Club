@@ -1,0 +1,219 @@
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  background : #edeeef;
+  overflow: scroll;
+}
+.container {
+  background : white;
+  padding : 0;
+}
+h1 {
+  text-align : center;
+  font-size : 75px;
+}
+footer {
+  z-index: -1;
+  color : white;
+  margin-top: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-top: 1px solid lightgrey;
+  background: #515151
+}
+.right {
+  float : right;
+}
+.nav {
+  z-index : -1;
+  display: block;
+  padding: 12px;
+  background-color: black;
+  min-height : 48px;
+  margin : 0
+}
+.home {
+  display : inline-block
+}
+.nav-group {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
+input {
+  display : block;
+}
+a:hover{
+  text-decoration: none
+}
+input:focus{
+  outline: 0;
+}
+p {
+  margin : 0
+}
+.select {
+  margin: 0.4%;
+  width: 100px;
+  height : 180px;
+  display: inline-block;
+}
+.select img {
+  width: 100px;
+  height : 150px;
+  border: 1px solid
+}
+.edit-book {
+  width: 100px;
+  height : 150px;
+  background: white;
+  border : 1px solid
+}
+.align {
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+.edit {
+  display:block;
+  width:100%
+}
+.edit-btn.btn-danger{
+  border-top-left-radius : 0px;
+  border-top-right-radius : 0px;
+  border-bottom-right-radius : 0px;
+  padding: 1%;
+  width : 75%
+}
+.edit-btn.btn-primary{
+  margin-left:-5%;
+  border-top-right-radius : 0px;
+  border-top-left-radius : 0px;
+  border-bottom-left-radius : 0px;
+  padding: 1%;
+  width : 25%
+}
+.trade-btn, .add-book {
+  padding: 1%;
+  width: 100%;
+  border-top-left-radius : 0px;
+  border-top-right-radius : 0px;
+}
+.edit-book{
+  display: none
+}
+.add-btn, .input {
+  display: inline-block;
+}
+.input{
+  text-align: center;
+  width: 70%;
+  border-top-left-radius : 5px;
+  border-bottom-left-radius : 5px;
+  border: 1px solid;
+  font-size: 17.5px
+}
+.add-btn{
+  margin-top : -3px;
+  padding : 2px 5px 2px 5px;
+  border-top-left-radius : 0px;
+  border-bottom-left-radius : 0px;
+}
+.poster{
+  width: 100%
+}
+.tradeBox{
+  overflow: scroll;
+  z-index: 2;
+  background: white;
+  position: absolute;
+  padding: 2%;
+  left: 10%;
+  width: 80%;
+  border: 1px solid lightblue;
+  border-radius: 10px;
+}
+.tradeboxBackground{
+  z-index: 1;
+  top: 0%;
+  left: 0%;
+  opacity: 0.8;
+  position: fixed;
+  background: black;
+  width: 100%;
+  min-height: 100%;
+  max-height: 500%  
+}
+.trade{
+  display: inline-block;
+  padding: 1% 1% 1% 1%
+}
+.user{
+  display: inline;
+}
+table {
+  margin: 2%
+}
+td {
+  padding: 5px;
+  font-size: 14px
+}
+button.trade.btn.btn-light:hover {
+  background-color: #f8f9fa;
+  cursor: default;
+  outline: 0;
+  border : none
+}
+button.trade.btn.btn-light:focus {
+  background-color: #f8f9fa;
+  cursor: default;
+  outline: 0;
+  border : none
+}
+button.trade.btn.btn-light {
+  background-color: #f8f9fa;
+  cursor: default;
+  outline: 0;
+  border : none
+}
+.copies{ 
+  display: inline-block;
+  width: 100px
+}
+option[value=""][disabled] {
+  display: none;
+}
+.subMenu {
+  cursor: pointer;
+  font-size: 20px;
+  color: 	#2F4F4F;
+  margin: 0;
+  padding: 0;
+  text-align: center
+}
+.clicked {
+  color: blue
+}
+.col-sub{
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid 
+}
+.myBooksSubMenu{
+  margin-top: 1%;
+  margin-bottom: 1%
+}
+
+.col-right {
+  border-left: 1px solid silver
+}
+.col-left {
+  border-right: 1px solid silver
+}
+.trade-tab {
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 2%
+}

@@ -1,0 +1,55 @@
+<div class="tradeboxBackground" tabindex="0" ng-keydown="$ctrl.onKeyDown($event)">
+</div>
+<div class="tradeBox" style="top: 15%; overflow: hidden !important" tabindex="0" ng-keydown="$ctrl.onKeyDown($event)">
+  <div class="row">
+    <div class="col-sm-2">
+      <img class="poster" ng-src="{{$ctrl.book.imageLinks.thumbnail}}">
+    </div>
+    <div class="col-sm-9">
+      <table style="width:100%">
+        <tr>
+          <td valign="top">Title:</td>
+          <td valign="top">{{$ctrl.book.title}}</td> 
+        </tr>
+        <tr>
+          <td valign="top">Subtitle:</td>
+          <td valign="top">{{$ctrl.book.subtitle}}</td> 
+        </tr>
+        <tr>
+          <td valign="top">Authors:</td>
+          <td valign="top">{{$ctrl.book.authors.join(", ")}}</td> 
+        </tr>
+        <tr>
+          <td valign="top">Description:</td>
+          <td valign="top">{{$ctrl.book.description.split("").slice(0, 500).join("") + "..."}}</td> 
+        </tr>
+        <tr>
+          <td valign="top">Settings:</td>
+          <td valign="top">
+            <form name="bookSetting">
+              <label>Number of copies you own: </label>
+              <input ng-model="$ctrl.copies" class="copies" type="number" name="copies" min="1" required>
+              <br>
+              <label>Trade Method:</label>
+              <select ng-model="$ctrl.tradeMethod" name="tradeMethod" required>
+                <option value="" disabled selected>Select your option</option>
+                <option value="Mail">Mail</option>
+                <option value="In Person">In Person</option>
+                <option value="Both">Both</option>
+              </select> 
+            </form>
+            <p style="color:red">{{$ctrl.err}}</p>
+          </td> 
+        </tr>
+      </table>
+    </div>
+    <div class="col-sm-1">
+      <div style="position: absolute; top: -5%; right: 4%">
+        <h4 style="cursor: pointer" ng-click="$ctrl.close()" ><i class="far fa-times-circle"></i></h4>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-success" style="width:70%" ng-click="$ctrl.add($ctrl.book, bookSetting.copies.$valid, bookSetting.tradeMethod.$valid)">Add</button>
+  </div>
+</div>
