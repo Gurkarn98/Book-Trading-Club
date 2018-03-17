@@ -483,45 +483,6 @@ app.post('/cancel', function (req, res){
         })
       })
     })
-    /*for (var i = 0; i < user.local.trades.fromMe.length; i++) {
-      if (user.local.trades.fromMe[i].title === req.body.request.title && 
-          user.local.trades.fromMe[i].authors === req.body.request.authors && 
-          user.local.trades.fromMe[i].status === "Pending"){
-        matched = true
-        user.local.trades.fromMe.splice(i,1)
-        var sendData = user.local.trades.fromMe
-        i = user.local.trades.fromMe.length+1
-        user.markModified('local');
-        user.save(function (err, user){
-          if (err)
-            console.log(err)
-          User.findOne({ 'local.email' :  req.body.request.username}, function(err, user) {
-            if (err)
-              console.log(err)
-            for (var i = 0; i < user.local.trades.forMe.length; i++) {
-              if (user.local.trades.forMe[i].title === req.body.request.title && user.local.trades.forMe[i].authors === req.body.request.authors){
-                user.local.trades.forMe.splice(i,1)
-                console.log(user.local.trades.forMe)
-                i = user.local.trades.forMe.length+1
-              }
-            }
-            user.markModified('local');
-            user.save(function (err, user){
-              if (err)
-                console.log(err)
-              res.send([sendData,""])
-            });
-          })
-        });
-      } else if (user.local.trades.fromMe[i].title === req.body.request.title && 
-          user.local.trades.fromMe[i].authors === req.body.request.authors && 
-          user.local.trades.fromMe[i].status !== "Pending"){
-          res.send([user.local.trades.fromMe, 'Your trade has been already' + user.local.trades.fromMe[i].status])
-      }
-    }*/
-    /*if (user.local.trades.fromMe.length === 0){
-      res.send([user.local.trades.fromMe, ''])
-    }*/
   })
 })
 
